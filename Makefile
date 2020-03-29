@@ -9,19 +9,25 @@ TARGET=mod_swap_handler.c
 APXS=apxs
 APACHECTL=apachectl
 
+#   additional user defines, includes and libraries
+DEF=
+INC=
+LIB=
+WC=-Wc,-std=c99
+
 #   the default target
 all: mod_swap_handler.la
 
 mod_swap_handler.la: $(TARGET)
-	$(APXS) -c $(TARGET)
+	$(APXS) -c $(DEF) $(INC) $(LIB) $(WC) $(TARGET)
 
-#   install the shared object file into Apache 
+#   install the shared object file into Apache
 install: all
 	$(APXS) -i -a -n 'swap_handler' mod_swap_handler.la
 
 #   cleanup
 clean:
-	-rm -rf .libs mod_swap_handler.o mod_swap_handler.lo mod_swap_handler.slo mod_swap_handler.la 
+	-rm -rf .libs mod_swap_handler.o mod_swap_handler.lo mod_swap_handler.slo mod_swap_handler.la
 
 #   install and activate shared object by reloading Apache to
 #   force a reload of the shared object file
