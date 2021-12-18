@@ -1,5 +1,5 @@
-mod_swap_handler.la
-mod_swap_handler.lo
-mod_swap_handler.o
-mod_swap_handler.slo
+mod_replace_handler.la
+mod_replace_handler.lo
+mod_replace_handler.o
+mod_replace_handler.slo
 .libs

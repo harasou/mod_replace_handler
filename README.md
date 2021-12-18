@@ -1,6 +1,6 @@
-mod_swap_handler
+mod_replace_handler
 =============================================
-mod_swap_handler can change the hadler configured by the user.
+mod_replace_handler can change the hadler configured by the user.
 
 [![][MIT]][MIT-Link]
 
@@ -15,8 +15,8 @@ Install
 - Build on Linux
 
 ```
-git clone https://github.com/harasou/mod_swap_handler
-cd mod_swap_handler
+git clone https://github.com/harasou/mod_replace_handler
+cd mod_replace_handler
 
 make
 make install
@@ -33,11 +33,11 @@ AddHandler php5.2-script .php
 
 server setting on httpd.conf
 ```
-LoadModule swap_handler_module modules/mod_swap_handler.so
+LoadModule replace_handler_module modules/mod_replace_handler.so
 
-<Ifmodule mod_swap_handler.c>
-SWAPHandler php5.2-script php5.6-script
-SWAPHandler php5.3-script php5.6-script
+<Ifmodule mod_replace_handler.c>
+ReplaceHandler php5.2-script php5.6-script
+ReplaceHandler php5.3-script php5.6-script
 </Ifmodule>
 ```
 
